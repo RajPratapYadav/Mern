@@ -1,0 +1,18 @@
+<!-- templates/index.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="home-content">
+            <h1>Welcome to Team Career Camp</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sagittis fermentum massa, vitae
+                hendrerit lorem lobortis eu. Aenean vel ullamcorper tortor. Sed nec ex eu quam eleifend sagittis id
+                ac quam. In euismod lacus eu sem facilisis, vel pellentesque sapien fringilla. Vestibulum sit amet
+                ultrices urna, ut consectetur lacus. Pellentesque vel tellus nec leo pharetra dignissim. Fusce at
+                tortor a velit scelerisque faucibus.
+            </p>
+            <a href="{{ url_for('student_list') }}" class="btn btn-primary">View Students</a>
+        </div>
+    </div>
+{% endblock %}

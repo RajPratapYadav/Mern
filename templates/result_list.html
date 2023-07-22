@@ -1,0 +1,34 @@
+<!-- templates/result_list.html -->
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Interview Results</h1>
+    <table>
+        <tr>
+            <th>Student Name</th>
+            <th>Interview Date</th>
+            <th>Company</th>
+            <th>Result</th>
+        </tr>
+        {% for result in results %}
+        <tr>
+            <td>{{ get_student_name(result.student_id) }}</td>
+            <td>{{ get_interview_date(result.interview_id) }}</td>
+            <td>{{ get_interview_company(result.interview_id) }}</td>
+            <td>
+                <form method="POST">
+                    <input type="hidden" name="student_id" value="{{ result.student_id }}">
+                    <input type="hidden" name="interview_id" value="{{ result.interview_id }}">
+                    <select name="result" required>
+                        <option value="PASS" {% if result.result == "PASS" %}selected{% endif %}>PASS</option>
+                        <option value="FAIL" {% if result.result == "FAIL" %}selected{% endif %}>FAIL</option>
+                        <option value="On Hold" {% if result.result == "On Hold" %}selected{% endif %}>On Hold</option>
+                        <option value="Didn't Attempt" {% if result.result == "Didn't Attempt" %}selected{% endif %}>Didn't Attempt</option>
+                    </select>
+                    <button type="submit">Save</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

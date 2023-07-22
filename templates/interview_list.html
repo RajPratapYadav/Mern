@@ -1,0 +1,21 @@
+<!-- templates/interview_list.html -->
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Interview List</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Company</th>
+            <th>Date</th>
+        </tr>
+        {% for interview in interviews %}
+            <tr>
+                <td>{{ interview.id }}</td>
+                <td>{{ interview.company }}</td>
+                <td>{{ interview.date }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('add_interview') }}" class="btn">Add Interview</a>
+{% endblock %}
